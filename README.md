@@ -1,29 +1,29 @@
 # Messaging App
 
-Aplicação de exemplo Java Spring Boot usando Kafka.
+Example Java Spring Boot application using Kafka.
 
-## Visão geral
+## Overview
 
-Este projeto implementa um caso de uso simples de pedidos (`Order`) com Kafka.
-- `POST /orders` cria um pedido e envia para o tópico Kafka.
-- O consumidor Kafka processa o pedido.
+This project implements a simple order (`Order`) use case with Kafka.
+- `POST /orders` creates an order and sends it to a Kafka topic.
+- The Kafka consumer processes the order.
 
-## Requisitos
+## Requirements
 
 - Java 23+
 - Maven 3.9+
-- Apache Kafka em execução localmente em `localhost:9092`
+- Apache Kafka running locally at `localhost:9092`
 
-## Como executar
+## How to run
 
-1. Inicie o Kafka localmente.
-2. Execute o aplicativo:
+1. Start Kafka locally.
+2. Run the application:
 
 ```bash
 mvn spring-boot:run
 ```
 
-3. Envie um pedido:
+3. Send an order:
 
 ```bash
 curl -X POST http://localhost:8080/orders \
@@ -31,12 +31,12 @@ curl -X POST http://localhost:8080/orders \
   -d '{"orderId":"123","product":"Notebook","quantity":2}'
 ```
 
-## Configuração
+## Configuration
 
-A configuração do Kafka está em `src/main/resources/application.yml`.
+Kafka configuration is in `src/main/resources/application.yml`.
 
-## Estrutura
+## Structure
 
-- `OrderController` recebe requisições HTTP.
-- `OrderProducer` publica mensagens Kafka.
-- `OrderConsumer` consome mensagens Kafka do tópico `orders`.
+- `OrderController` receives HTTP requests.
+- `OrderProducer` publishes Kafka messages.
+- `OrderConsumer` consumes Kafka messages from the `orders` topic.
